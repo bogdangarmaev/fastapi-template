@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "template-backend"
+version = "0.1.0"
+description = ""
+authors = ["Bogdan"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.36"
+psycopg2 = "^2.9.3"
+alembic = "^1.7.7"
+asyncpg = "^0.25.0"
+fastapi-camelcase = "^1.0.5"
+loguru = "^0.6.0"
+fastapi = "^0.78.0"
+pydantic = {extras = ["dotenv"], version = "^1.9.1"}
+httpx = "^0.23.0"
+aioredis = {extras = ["hiredis"], version = "^2.0.1" }
+watchgod = "^0.8.2"
+redis = "^4.3.3"
+SQLAlchemy-Utils = "^0.38.3"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = "^22.6.0"
+pytest = "^7.1.2"
+factory-boy = "^3.2.1"
+pytest-asyncio = "^0.18.3"
+sqlacodegen = "^2.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | alembic
+  | frontend
+)/
+'''
+
+[tool.pytest.ini_options]
+console_output_style = "progress"
+asyncio_mode = "auto"
