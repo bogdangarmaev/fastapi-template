@@ -76,7 +76,7 @@ class CreateTest(BaseTest, metaclass=ABCMeta):
 class UpdateTest(BaseTest, metaclass=ABCMeta):
     async def test_put(self, client: AsyncClient, session: SessionTesting):
         db_item = await self._insert_test_item(session)
-        response = await client.put(
+        response = await client.patch(
             self.url + str(db_item.id),
             json=await self._generate_put_data(session),
         )

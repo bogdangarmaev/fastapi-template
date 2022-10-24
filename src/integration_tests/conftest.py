@@ -24,7 +24,7 @@ from src.db.models import *
 settings = _get_settings(debug=True)
 
 
-engine = create_async_engine(settings.test_db_url)
+engine = create_async_engine(settings.test_db_dsn)
 SessionTesting = sessionmaker(
     autocommit=False, autoflush=False, bind=engine, class_=AsyncSession
 )
